@@ -6,8 +6,9 @@ const fizzBuzzer = require('../fizzBuzzer');
 
 describe('fizzBuzzer', function() {
     
+
     // test num % 3
-    it(`should return fizz if divisible by 3`, function() {
+    it(`should return fizz if a multiple of 3`, function() {
         
         const normalCases = [
             {num: 12, expected: 'fizz'},
@@ -22,7 +23,7 @@ describe('fizzBuzzer', function() {
     
     });
     // test num % 5
-    it(`should return 'buzz' if divisible by 5`, function() {
+    it(`should return 'buzz' if a multiple of  by 5`, function() {
         const normalCases = [
             {num: 5, expected: 'buzz'},
             {num: 10, expected: 'buzz'},
@@ -35,7 +36,7 @@ describe('fizzBuzzer', function() {
 
     });
     // test num % 15
-    it(`should return 'fizz-buzz' if divisible by 3 and 5`, function() {
+    it(`should return 'fizz-buzz' if a multiple of 3 and 5`, function() {
         const normalCases = [
             {num: 15, expected: 'fizz-buzz'},
             {num: 30, expected: 'fizz-buzz'},
@@ -47,12 +48,27 @@ describe('fizzBuzzer', function() {
         })
 
     });
+
+    // functions above can be rewritten more succintly
+    // for example: 
+    // it(`should return 'fizz-buzz' if a multiple of 3 and 5`, function() {
+    //     [15, 30, 35].forEach(num => {
+    //         const answer = fizzBuzzer(num);
+    //         expect(answer).to.be.equal('fizz-buzz');
+    //     })
+    // });
+
     // test edge case 
     it('should raise an error if args are not numbers', function() {
         badInputs = [
             'a',
             'fifteen',
-            'three'
+            'three',
+            function(){},
+            true,
+            false,
+            null,
+            undefined
         ];
 
         badInputs.forEach(input => {
